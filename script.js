@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Прокручиваем страницу наверх при загрузке
+  window.scrollTo(0, 0);
+  
   const burger = document.querySelector('.hamburger');
   const nav = document.querySelector('.nav');
   if (burger && nav) {
@@ -34,15 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const payload = Object.fromEntries(formData.entries());
       try {
         const body = new URLSearchParams(payload);
+        console.log('Отправляем данные (контактная форма):', payload);
+        console.log('Endpoint:', endpoint);
+        
         const res = await fetch(endpoint, {
           method: 'POST',
           mode: 'no-cors',
           body
         });
+        
+        console.log('Запрос отправлен (контактная форма)');
         // With no-cors we can't read status; optimistically show success
         if (statusEl) statusEl.textContent = 'Заявка отправлена!';
         form.reset();
       } catch (err) {
+        console.error('Ошибка (контактная форма):', err);
         if (statusEl) statusEl.textContent = 'Ошибка отправки. Попробуйте ещё раз.';
       }
     });
@@ -70,11 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       try {
         const body = new URLSearchParams(payload);
+        console.log('Отправляем данные:', payload);
+        console.log('Endpoint:', endpoint);
+        
         const res = await fetch(endpoint, {
           method: 'POST',
           mode: 'no-cors',
           body
         });
+        
+        console.log('Запрос отправлен');
         // With no-cors we can't read status; optimistically show success
         submitBtn.textContent = 'Заявка отправлена!';
         heroForm.reset();
@@ -83,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
         }, 3000);
       } catch (err) {
+        console.error('Ошибка:', err);
         submitBtn.textContent = 'Ошибка отправки. Попробуйте ещё раз.';
         submitBtn.disabled = false;
       }
@@ -111,6 +126,84 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+  }
+  
+  // Кнопка "Наверх"
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  if (scrollToTopBtn) {
+    // Показываем кнопку при прокрутке вниз
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    // Плавная прокрутка наверх при клике
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+  
+  // Делаем карточки услуг кликабельными
+  const serviceCards = document.querySelectorAll('.service-card');
+  serviceCards.forEach(card => {
+    const link = card.querySelector('.service-button .btn');
+    if (link) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        // Предотвращаем клик, если кликнули именно на кнопку
+        if (e.target.closest('.service-button')) {
+          return;
+        }
+        // Переходим по ссылке
+        window.location.href = link.href;
+      });
+    }
+  });
+
+  // Cookie баннер
+  const cookieBanner = document.getElementById('cookieBanner');
+  const acceptBtn = document.getElementById('acceptCookies');
+  const rejectBtn = document.getElementById('rejectCookies');
+
+  if (cookieBanner && acceptBtn && rejectBtn) {
+    // Проверяем, есть ли уже сохранённое согласие
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (!cookieConsent) {
+      // Показываем баннер через небольшую задержку
+      setTimeout(() => {
+        cookieBanner.classList.add('show');
+      }, 1000);
+    }
+
+    // Обработка принятия cookies
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.classList.remove('show');
+      
+      // Загружаем Яндекс.Метрику после согласия
+      if (typeof ym !== 'undefined') {
+        ym(123147, 'reachGoal', 'cookie_accepted');
+      }
+    });
+
+    // Обработка отклонения cookies
+    rejectBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'rejected');
+      cookieBanner.classList.remove('show');
+    });
+  }
+  
+  // Проверяем согласие и загружаем Яндекс.Метрику если согласен
+  const cookieConsent = localStorage.getItem('cookieConsent');
+  if (cookieConsent === 'accepted' && typeof ym !== 'undefined') {
+    // Метрика уже загружена в head, ничего не делаем
   }
 });
 

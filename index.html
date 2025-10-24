@@ -10,6 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(123147, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/123147" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
   </head>
   <body>
     <header class="site-header">
@@ -20,7 +38,12 @@
         </nav>
         <a class="logo" href="#top">A.I.D.E.N</a>
         <div class="header-cta">
-          <a href="#contact" class="btn btn-primary">Оставить заявку</a>
+          <a href="https://t.me/aidenhero" target="_blank" class="btn btn-telegram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            Telegram
+          </a>
           <button class="hamburger" aria-label="Открыть меню" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -58,7 +81,13 @@
                   <input type="text" name="Name" placeholder="Ваше имя" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" name="Email" placeholder="Email" required>
+                  <input type="text" name="Email" placeholder="E-mail/Telegram/WhatsApp" required>
+                </div>
+                <div class="form-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="consent" required>
+                    <span class="checkbox-text">Я согласен(а) на обработку персональных данных<br>в соответствии с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a></span>
+                  </label>
                 </div>
                 <button type="submit" class="btn-submit">Отправить заявку</button>
               </form>
@@ -72,7 +101,7 @@
           <div class="aboutus">
             <header class="aboutus-header">
               <h2 class="section-title">Кто мы и что мы делаем?</h2>
-              <p class="section-subtitle">AIDEN - это не просто команда аналитиков, а настоящие чемпионы лени в мире маркетплейсов. Мы искренне избегаем рутину: бесконечные таблицы, отчеты и ручной труд, который высасывает душу. Как главные тунеядцы планеты, мы решили: зачем работать, если можно не работать? Мы создаем инструменты, которые берут всю грязную работу на себя.<br><br>У нас нет пафосного директора по маркетингу или отдела продаж — только чистая идея и цель: мы не из тех, кто будет звонить вам каждую неделю, или засорять вашу почту.<br>У нас была какая-то тактика с самого начала и мы ее придерживались? С самого начала у нас была какая-то тактика и мы ее придерживались.<br><br>Подключайтесь, и увидите, как бизнес начнёт работать сам.</p>
+              <p class="section-subtitle">AIDEN - это команда аналитиков, настоящие чемпионы лени в мире маркетплейсов. Мы искренне избегаем рутину: бесконечные таблицы, отчеты и ручной труд, который высасывает душу. Как главные тунеядцы планеты, мы решили: зачем работать, если можно не работать? Мы создаем инструменты, которые берут всю грязную работу на себя.<br><br>У нас нет пафосного директора по маркетингу или отдела продаж — только чистая идея и цель: мы не из тех, кто будет звонить вам каждую неделю, или засорять вашу почту.<br>У нас была какая-то тактика с самого начала и мы ее придерживались? С самого начала у нас была какая-то тактика и мы ее придерживались.<br><br>Подключайтесь, и увидите, как бизнес начнёт работать сам.</p>
             </header>
 
             <div class="aboutus-grid">
@@ -117,10 +146,10 @@
             <article class="service-card">
               <div class="service-content">
                 <h3>Калькуляторы</h3>
-                <p class="card-lead">С помощью наших калькуляторов по ценам и поставкам вы легко определите, сколько поставлять и по какой цене. Всё под ваши данные.</p>
+                <p class="card-lead">С помощью наших калькуляторов по ценам и поставкам вы легко определите, сколько поставлять и по какой цене.<br>Всё под ваши данные.</p>
               </div>
               <div class="service-button">
-                <a class="btn btn-dark" href="services/pricing.html">Узнать больше</a>
+                <a class="btn btn-dark" href="services/pricing.html">→</a>
               </div>
             </article>
 
@@ -130,7 +159,7 @@
                 <p class="card-lead">База данных от A.I.D.E.N.: собираем ваши данные в одну систему с таблицами по стокам, заказам, рекламе, финансам и продажам. Просто подключайтесь и анализируйте без хаоса.</p>
               </div>
               <div class="service-button">
-                <a class="btn btn-dark" href="services/database-stocks.html">Узнать больше</a>
+                <a class="btn btn-dark" href="services/database-stocks.html">→</a>
               </div>
             </article>
 
@@ -140,7 +169,7 @@
                 <p class="card-lead">Проведём аудит — от создания карточек до продаж. Получите четкие рекомендации, чтобы расти без лишних усилий.</p>
               </div>
               <div class="service-button">
-                <a class="btn btn-dark" href="services/info-storage-db.html">Узнать больше</a>
+                <a class="btn btn-dark" href="services/info-storage-db.html">→</a>
               </div>
             </article>
 
@@ -150,7 +179,7 @@
                 <p class="card-lead">Мы разберем ваши финансовые документы с WB и Ozon. Вы получите детали в тотале и по SKU.</p>
               </div>
               <div class="service-button">
-                <a class="btn btn-dark" href="services/finance-docs.html">Узнать больше</a>
+                <a class="btn btn-dark" href="services/finance-docs.html">→</a>
               </div>
             </article>
 
@@ -160,27 +189,7 @@
                 <p class="card-lead"><em>*В разработке*</em><br>Для более подробной информации, уточните у менеджера по работе с клиентами</p>
               </div>
               <div class="service-button">
-                <a class="btn btn-dark" href="services/ads-analytics.html">Узнать больше</a>
-              </div>
-            </article>
-
-            <article class="service-card">
-              <div class="service-content">
-                <h3>ИИ-агент</h3>
-                <p class="card-lead"><em>*В разработке*</em><br>Мы создадим для вас ИИ-агента под любой точечный запрос — от анализа данных до обработки писем и звонков клиентов. Вы получите персонального помощника, который решит любую вашу задачу быстро и точно.</p>
-              </div>
-              <div class="service-button">
-                <a class="btn btn-dark" href="services/ai-agent.html">Узнать больше</a>
-              </div>
-            </article>
-
-            <article class="service-card">
-              <div class="service-content">
-                <h3>Планирование</h3>
-                <p class="card-lead"><em>*В разработке*</em><br>Для более подробной информации, уточните у менеджера по работе с клиентами</p>
-              </div>
-              <div class="service-button">
-                <a class="btn btn-dark" href="services/planning.html">Узнать больше</a>
+                <a class="btn btn-dark" href="services/ads-analytics.html">→</a>
               </div>
             </article>
 
@@ -190,7 +199,27 @@
                 <p class="card-lead"><span class="exclusive-badge">Только по предзаказу</span><br>Для более подробной информации, уточните у менеджера по работе с клиентами</p>
               </div>
               <div class="service-button">
-                <a class="btn btn-dark" href="services/logistics-map.html">Узнать больше</a>
+                <a class="btn btn-dark" href="services/logistics-map.html">→</a>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-content">
+                <h3>Планирование</h3>
+                <p class="card-lead"><em>*В разработке*</em><br>Для более подробной информации, уточните у менеджера по работе с клиентами</p>
+              </div>
+              <div class="service-button">
+                <a class="btn btn-dark" href="services/planning.html">→</a>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-content">
+                <h3>ИИ-агент</h3>
+                <p class="card-lead"><em>*В разработке*</em><br>Мы создадим для вас ИИ-агента под любой точечный запрос — от анализа данных до обработки писем и звонков клиентов. Вы получите персонального помощника, который решит любую вашу задачу быстро и точно.</p>
+              </div>
+              <div class="service-button">
+                <a class="btn btn-dark" href="services/ai-agent.html">→</a>
               </div>
             </article>
           </div>
@@ -202,7 +231,10 @@
           <h2 class="section-title">Обучение</h2>
 
           <div class="pricing-grid">
-            <article class="price-card">
+            <article class="price-card education-card-soon">
+              <div class="education-overlay">
+                <div class="soon-label">Скоро</div>
+              </div>
               <h3>Junior</h3>
               <ul>
                 <li>Базовые навыки работы с данными на WB и Ozon — от сбора до простого анализа</li>
@@ -217,7 +249,10 @@
               </div>
             </article>
 
-            <article class="price-card">
+            <article class="price-card education-card-soon">
+              <div class="education-overlay">
+                <div class="soon-label">Скоро</div>
+              </div>
               <h3>Middle</h3>
               <ul>
                 <li>Углублённые навыки анализа продаж и конкурентов</li>
@@ -232,7 +267,10 @@
               </div>
             </article>
 
-            <article class="price-card">
+            <article class="price-card education-card-soon">
+              <div class="education-overlay">
+                <div class="soon-label">Скоро</div>
+              </div>
               <h3>Senior</h3>
               <ul>
                 <li>Точечный проект по создании уникального продукта под ваш запрос</li>
@@ -284,7 +322,7 @@
         <div class="container">
           <div class="cta">
             <h2>ОСТАВИТЬ ЗАЯВКУ</h2>
-            <p>Отправьте контакты и опишите задачу — свяжусь для уточнения деталей.</p>
+            <p>Отправьте контакты и опишите задачу при необходимости - мы свяжемся с вами для уточнения деталей.</p>
             <form id="contactForm" class="contact-form" data-endpoint="https://script.google.com/macros/s/AKfycbyiMCNveNItUfs_Ynnuwwvq-nYVuM2bSDJIH7y3bfxlDKvSrA8Ccn0AUHQtKP8Ha3K-/exec">
               <div class="form-row">
                 <label>
@@ -292,13 +330,17 @@
                   <input type="text" name="Name" placeholder="Ваше имя" required />
                 </label>
                 <label>
-                  Email
-                  <input type="email" name="Email" placeholder="you@example.com" required />
+                  Контакт
+                  <input type="text" name="Email" placeholder="E-mail/Telegram/WhatsApp" required />
                 </label>
               </div>
               <label>
                 Сообщение
                 <textarea name="Message" rows="4" placeholder="Коротко опишите задачу" required></textarea>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="consent" required>
+                <span class="checkbox-text">Я согласен(а) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a></span>
               </label>
               <div class="form-actions" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
                 <button type="submit" class="btn btn-primary">Отправить</button>
@@ -312,9 +354,35 @@
       <section id="connect" class="section">
         <div class="container">
           <h2 class="section-title">Связаться</h2>
+          <p class="section-subtitle" style="margin-bottom: 32px;">Выберите удобный способ связи — мы всегда готовы помочь с вашими задачами</p>
+          
           <div class="contact-links">
-            <a href="mailto:aidenhero@yandex.ru" class="contact-link">Email: aidenhero@yandex.ru</a>
-            <a href="https://t.me/aidenhero" target="_blank" rel="noopener" class="contact-link">Telegram: @aidenhero</a>
+            <a href="mailto:aidenhero@yandex.ru" class="contact-link">
+              <div class="contact-icon">📧</div>
+              <div class="contact-info">
+                <h3>Email</h3>
+                <p>aidenhero@yandex.ru</p>
+                <span class="contact-desc">Для детальных вопросов и документации</span>
+              </div>
+            </a>
+            
+            <a href="https://t.me/aidenhero" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-icon">💬</div>
+              <div class="contact-info">
+                <h3>Telegram</h3>
+                <p>@aidenhero</p>
+                <span class="contact-desc">Быстрые ответы и консультации</span>
+              </div>
+            </a>
+            
+            <div class="contact-link contact-link-special">
+              <div class="contact-icon">⚡</div>
+              <div class="contact-info">
+                <h3>Быстрый старт</h3>
+                <p>Ответим в течение 2 часов</p>
+                <span class="contact-desc">Работаем с 9:00 до 21:00 МСК</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -322,11 +390,56 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© A.I.D.E.N</p>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>A.I.D.E.N</h3>
+            <p>Ваш герой в аналитике маркетплейсов</p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Контакты</h4>
+            <a href="mailto:aidenhero@yandex.ru">aidenhero@yandex.ru</a>
+            <a href="https://t.me/aidenhero" target="_blank" rel="noopener">Telegram: @aidenhero</a>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Навигация</h4>
+            <a href="#products">Услуги</a>
+            <a href="#education">Обучение</a>
+            <a href="#contact">Оставить заявку</a>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Документы</h4>
+            <a href="privacy.html">Политика конфиденциальности</a>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>© 2025 A.I.D.E.N. Все права защищены.</p>
+        </div>
       </div>
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Кнопка "Наверх" -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Наверх">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Cookie баннер -->
+    <div id="cookieBanner" class="cookie-banner">
+      <div class="cookie-content">
+        <p>Мы используем cookies для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с нашей <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.</p>
+        <div class="cookie-buttons">
+          <button id="acceptCookies" class="btn btn-primary">Принять</button>
+          <button id="rejectCookies" class="btn btn-ghost">Отклонить</button>
+        </div>
+      </div>
+    </div>
   </body>
   </html>
 
