@@ -727,6 +727,15 @@ h3 { font-size: var(--fs-h3); font-weight: 600; }
   background: transparent; 
 }
 
+/* Описание под заголовком обучения */
+.education-intro {
+  color: #2a2a2a;
+  margin: 8px 0 20px;
+  max-width: 880px;
+  line-height: 1.6;
+  font-size: clamp(16px, 2.2vw, 18px);
+}
+
 /* Education card "soon" effects */
 .education-card-soon {
   position: relative;
@@ -756,19 +765,19 @@ h3 { font-size: var(--fs-h3); font-weight: 600; }
 }
 
 .soon-label {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  padding: 12px 24px;
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 40px;
+  padding: 8px 16px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
   color: #1a1a1a;
   text-align: center;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.05em;
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
@@ -783,8 +792,8 @@ h3 { font-size: var(--fs-h3); font-weight: 600; }
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 3s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  animation: shimmer 3.6s infinite;
 }
 
 @keyframes shimmer {
@@ -1112,7 +1121,7 @@ h3 { font-size: var(--fs-h3); font-weight: 600; }
   background: white; 
   border: 1px solid rgba(0, 0, 0, 0.1); 
   border-radius: 16px; 
-  padding: 24px; 
+  padding: 18px 24px; 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   margin-bottom: 16px;
@@ -1163,7 +1172,7 @@ h3 { font-size: var(--fs-h3); font-weight: 600; }
 }
 
 .faq p { 
-  margin: 16px 0 0; 
+  margin: 12px 0 0; 
   font-size: clamp(16px, 2vw, 18px);
   line-height: 1.6;
   color: #555;
@@ -1558,18 +1567,181 @@ input:focus, textarea:focus { outline: none; border-color: #233D4C; box-shadow: 
   padding-bottom: 8px;
 }
 
-.benefit-item {
+/* Calculator benefits - раскрывающиеся карточки */
+.calculator-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 769px) {
+  .calculator-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  /* На десктопе карточки всегда открыты и не раскрываются */
+  .calculator-benefit-card {
+    display: block;
+  }
+  
+  .calculator-benefit-card summary {
+    cursor: default;
+    pointer-events: none;
+    padding-right: 0;
+  }
+  
+  .calculator-benefit-card summary::after {
+    display: none;
+  }
+  
+  .calculator-benefit-card summary:hover {
+    color: #1a1a1a;
+  }
+  
+  .calculator-benefit-card summary h2 {
+    margin-bottom: 24px;
+    color: #1a1a1a;
+  }
+  
+  .calculator-benefit-card[open] summary h2 {
+    margin-bottom: 24px;
+    color: #1a1a1a;
+  }
+}
+
+.calculator-benefit-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.calculator-benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.calculator-benefit-card:hover {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(35, 61, 76, 0.2);
+  border-color: rgba(35, 61, 76, 0.2);
+}
+
+.calculator-benefit-card summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  padding-right: 40px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.calculator-benefit-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.calculator-benefit-card summary::after {
+  content: '▼';
+  font-size: 16px;
+  color: #233D4C;
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.calculator-benefit-card[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.calculator-benefit-card summary:hover {
+  color: #FF740F;
+}
+
+.calculator-benefit-card summary h2 {
+  color: #1a1a1a;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.calculator-benefit-card[open] summary h2 {
+  color: #233D4C;
   margin-bottom: 24px;
 }
 
-.benefit-item h3 {
-  color: #1a1a1a;
-  font-size: clamp(24px, 3vw, 28px);
-  font-weight: 600;
-  margin-bottom: 8px;
+.calculator-benefit-card summary ~ * {
+  animation: slideDown 0.3s ease-out;
 }
 
-.benefit-item p {
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.benefit-item:last-child {
+  margin-bottom: 0;
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #fe7f2d, #ff740f);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(254, 127, 45, 0.4);
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-content h3 {
+  color: #1a1a1a;
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.benefit-content p {
   color: #2a2a2a;
   font-size: clamp(16px, 2.2vw, 18px);
   line-height: 1.6;
@@ -1581,6 +1753,42 @@ input:focus, textarea:focus { outline: none; border-color: #233D4C; box-shadow: 
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 24px;
+  }
+  
+  .calculator-benefits {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .calculator-benefit-card {
+    padding: 16px;
+  }
+  
+  .calculator-benefit-card summary h2 {
+    font-size: clamp(20px, 4vw, 24px);
+  }
+  
+  .calculator-benefit-card[open] summary h2 {
+    margin-bottom: 12px;
+  }
+  
+  .benefit-item {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  
+  .benefit-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  .benefit-content h3 {
+    font-size: clamp(18px, 3.5vw, 20px);
+  }
+  
+  .benefit-content p {
+    font-size: clamp(15px, 3vw, 17px);
   }
 }
 
@@ -1664,14 +1872,71 @@ input:focus, textarea:focus { outline: none; border-color: #233D4C; box-shadow: 
 }
 
 @media (max-width: 768px) {
+  /* Footer - компактнее на мобильных */
+  .site-footer {
+    padding: 40px 0 20px !important;
+  }
+  
+  .footer-inner {
+    gap: 24px !important;
+  }
+  
+  .footer-content {
+    gap: 20px !important;
+  }
+  
+  .footer-section h3,
+  .footer-section h4 {
+    margin-bottom: 8px !important;
+  }
+  
+  .footer-section a {
+    margin-bottom: 6px !important;
+  }
+  
+  .footer-bottom {
+    padding-top: 20px !important;
+  }
+  
+  /* Карточки "Чем поможет" и "Этапы" - компактнее на мобильных */
   .stages-card {
-    padding: 24px;
+    padding: 24px !important;
     margin-top: 24px;
+  }
+  
+  .stages-title {
+    margin-bottom: 20px !important;
   }
   
   .stages-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px !important;
+  }
+  
+  .result-card {
+    padding: 28px !important;
+  }
+  
+  .result-title {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Переопределение inline стилей для карточек с padding: 40px */
+  div[style*="padding: 40px"] {
+    padding: 28px !important;
+  }
+  
+  div[style*="margin-bottom: 40px"] {
+    margin-bottom: 24px !important;
+  }
+  
+  /* Переопределение для элементов внутри карточек */
+  div[style*="margin-bottom: 40px"][style*="padding-left: 50px"] {
+    margin-bottom: 20px !important;
+  }
+  
+  h2[style*="margin-bottom: 32px"] {
+    margin-bottom: 16px !important;
   }
 }
 
@@ -1853,6 +2118,42 @@ input:focus, textarea:focus { outline: none; border-color: #233D4C; box-shadow: 
   .course-overview-card,
   .practice-card {
     padding: 24px;
+  }
+}
+
+/* Mobile-only: ещё компактнее плашка "Скоро" */
+@media (max-width: 768px) {
+  .soon-label {
+    padding: 6px 12px;
+    font-size: clamp(12px, 3.5vw, 14px);
+    border-radius: 32px;
+    backdrop-filter: blur(6px);
+  }
+}
+
+/* ===== Education: mobile compact cards ===== */
+@media (max-width: 768px) {
+  /* Уменьшаем высоту карточек, оставляем только заголовок */
+  #education .price-card {
+    padding: 16px;
+    min-height: auto;
+  }
+  
+  /* Скрываем всё внутри карточки, кроме заголовка h3 и оверлея */
+  #education .price-card > :not(h3):not(.education-overlay) {
+    display: none !important;
+  }
+
+  /* Заголовок — компактнее, без отступа под цену */
+  #education .price-card h3 {
+    padding-right: 0;
+    margin: 4px 0;
+    font-size: clamp(18px, 4vw, 20px);
+  }
+
+  /* Стеклянность остаётся, но уменьшаем размытие, чтобы текст чуть читался */
+  .education-card-soon .education-overlay {
+    backdrop-filter: blur(4px);
   }
 }
 
